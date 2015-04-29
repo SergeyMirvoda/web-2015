@@ -4,7 +4,7 @@ Ext.define('wh.view.product.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title : 'Edit Product',
+    title : 'Редактирование Товара',
     layout: 'fit',
     autoShow: true,
     width: 280,
@@ -21,12 +21,12 @@ Ext.define('wh.view.product.Edit', {
                     {
                         xtype: 'textfield',
                         name : 'name',
-                        fieldLabel: 'Name'
+                        fieldLabel: 'Название'
                     },
                     {
                         xtype: 'textfield',
                         name : 'price',
-                        fieldLabel: 'Price'
+                        fieldLabel: 'Цена'
                     }
                 ]
             }
@@ -34,11 +34,11 @@ Ext.define('wh.view.product.Edit', {
 
         this.buttons = [
             {
-                text: 'Save',
+                text: 'Сохранить',
                 action: 'save'
             },
             {
-                text: 'Cancel',
+                text: 'Отмена',
                 scope: this,
                 handler: this.close
             }
