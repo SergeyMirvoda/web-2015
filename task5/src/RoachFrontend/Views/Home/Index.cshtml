@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script language="javascript" src="~/Scripts/game.js"></script>
+    <script type="text/javascript" src="~/Scripts/ext-all-debug.js"></script>
+    <script type="text/javascript">
+        function SubmitStats(parameters) {
+            Ext.Ajax.request({
+                url: '/Home/SaveStats',
+                method: 'POST',
+                params: {
+                    data: Ext.encode({
+                        user: 'User1',
+                        money: 100
+                    })
+                },
+                success: function (response) {
+                    var text = response.responseText;
+                    alert(text);
+                    // process server response here
+                }
+            });
+        }
+    </script>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+        }
+
+        a {
+            display: block;
+        }
+    </style>
+
+
+    <title>Игровой портал</title>
+</head>
+<body>
+    <header>Тарканьи бега</header>
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Главная</a></li>
+            <li><a href="/Home/Manage">Управление</a></li>
+        </ul>
+    </nav>
+    <article>
+        <section id="CanvasSection">
+            <canvas id="canvas" width="500" height="500" style="border-color: red; border-style: double;"></canvas>
+        </section>
+        <button id="btnSubmitStat" type="submit" onclick="SubmitStats()">Сохранить результаты</button>
+    </article>
+</body>
+</html>
